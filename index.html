@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#101010">
+<title>Apoorv Talekar — Video Portfolio</title>
+
+<style>
+:root {
+  --bg: #101010;
+  --fg: #f5f3ee;
+  --muted: #a8a69f;
+  --line: #30302e;
+  --accent: #d7ff3f;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+a { color: inherit; text-decoration: none; }
+
+.shell {
+  width: min(1180px, calc(100% - 40px));
+  margin: auto;
+}
+
+header {
+  height: 76px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--line);
+}
+
+.logo {
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: .12em;
+}
+
+.logo span { color: var(--accent); }
+
+nav {
+  display: flex;
+  gap: 24px;
+  font-size: 11px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: #c5c3bd;
+}
+
+nav a:hover { color: var(--accent); }
+
+/* HERO SECTION */
+
+.hero {
+  padding: 100px 0 76px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 28px;
+  align-items: end;
+}
+
+.kicker {
+  font-size: 10px;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-weight: bold;
+}
+
+.hero-title {
+  font-size: clamp(58px, 9.5vw, 120px);
+  line-height: .84;
+  letter-spacing: -.085em;
+  font-weight: 900;
+  margin: 24px 0 30px;
+  text-transform: uppercase;
+}
+
+.hero-title span { color: var(--accent); }
+
+.hero-bottom {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  flex-wrap: wrap;
+}
+
+.hero-tagline {
+  font-size: clamp(26px, 3.5vw, 42px);
+  line-height: 1;
+  letter-spacing: -.055em;
+  font-weight: 800;
+  margin: 0;
+}
+
+.hero-tagline span { color: var(--accent); }
+
+.shoot-label {
+  border-left: 1px solid var(--line);
+  padding-left: 18px;
+  font-size: 10px;
+  line-height: 1.8;
+  letter-spacing: .14em;
+  color: var(--muted);
+  text-transform: uppercase;
+}
+
+.shoot-label strong {
+  display: block;
+  color: var(--accent);
+  font-size: 12px;
+  letter-spacing: .12em;
+}
+
+.intro {
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--muted);
+  max-width: 440px;
+  margin: 28px 0 0;
+}
+
+.hero-side {
+  font-size: 10px;
+  line-height: 1.8;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-align: right;
+  padding-bottom: 5px;
+}
+
+/* WORK SECTION */
+
+.work-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 20px;
+  margin: 0 0 20px;
+}
+
+.work-head h2 {
+  font-size: 24px;
+  letter-spacing: -.04em;
+  margin: 8px 0 0;
+}
+
+.work-head p {
+  font-size: 12px;
+  color: var(--muted);
+  margin: 0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.project {
+  background: #171716;
+  border: 1px solid var(--line);
+  min-width: 0;
+}
+
+.video {
+  position: relative;
+  background: #050505;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+}
+
+.video iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  background: #050505;
+}
+
+.project-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 15px 16px;
+}
+
+.project-name {
+  font-size: 13px;
+  font-weight: bold;
+  letter-spacing: .04em;
+}
+
+.project-number {
+  font-size: 10px;
+  color: var(--muted);
+  letter-spacing: .12em;
+  white-space: nowrap;
+}
+
+.open-link {
+  display: inline-block;
+  color: var(--accent);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  margin-top: 7px;
+}
+
+.open-link:hover { text-decoration: underline; }
+
+/* FOOTER */
+
+footer {
+  margin-top: 78px;
+  border-top: 1px solid var(--line);
+  padding: 24px 0 30px;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  align-items: center;
+}
+
+.footer-name {
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: .1em;
+}
+
+.footer-note {
+  font-size: 10px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-align: right;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 680px) {
+  .shell { width: calc(100% - 28px); }
+
+  header { height: 64px; }
+
+  .hero {
+    grid-template-columns: 1fr;
+    padding: 70px 0 55px;
+    gap: 20px;
+  }
+
+  .hero-title {
+    font-size: clamp(44px, 12vw, 78px);
+    line-height: .9;
+  }
+
+  .hero-bottom { gap: 18px; }
+
+  .hero-tagline { font-size: 30px; }
+
+  .hero-side { text-align: left; }
+  .hero-side br { display: none; }
+
+  .grid { grid-template-columns: 1fr; }
+
+  .work-head {
+    align-items: start;
+    flex-direction: column;
+  }
+
+  .project-meta { padding: 13px; }
+
+  footer {
+    align-items: start;
+    flex-direction: column;
+  }
+
+  .footer-note { text-align: left; }
+}
+</style>
+</head>
+
+<body>
+<div class="shell">
+
+<header>
+  <a class="logo" href="#">APOORV<span>.</span></a>
+  <nav>
+    <a href="#work">Work</a>
+    <a href="#about">About</a>
+  </nav>
+</header>
+
+<main>
+
+<section class="hero" id="about">
+  <div>
+    <div class="kicker">Video Editor · Videographer</div>
+
+    <h1 class="hero-title">
+      APOORV<br>
+      TALEKAR<span>.</span>
+    </h1>
+
+    <div class="hero-bottom">
+      <h2 class="hero-tagline">
+        Stories in<br>
+        <span>motion.</span>
+      </h2>
+
+      <div class="shoot-label">
+        <strong>Shot on iPhone</strong>
+        Editing · Shooting<br>
+        Cinematic storytelling
+      </div>
+    </div>
+
+    <p class="intro">
+      I’m Apoorv Talekar. I edit with CapCut, DaVinci Resolve
+      and Premiere Pro, and shoot on iPhone — creating visual
+      stories with a cinematic point of view.
+    </p>
+  </div>
+
+  <div class="hero-side">
+    Selected work<br>
+    Editing / Shooting<br>
+    Available for projects
+  </div>
+</section>
+
+<section id="work">
+  <div class="work-head">
+    <div>
+      <div class="kicker">Selected work</div>
+      <h2>A few things I’ve made.</h2>
+    </div>
+    <p>Tap play to watch each video. If a player fails, open the original in Drive.</p>
+  </div>
+
+  <div class="grid">
+
+    <article class="project">
+      <div class="video">
+        <iframe src="https://drive.google.com/file/d/11SutvvncxzSqgOo4kPw16GYAGVaQZe-T/preview"
+        title="Fast pace reel" allow="autoplay; fullscreen; picture-in-picture"
+        allowfullscreen loading="lazy"></iframe>
+      </div>
+      <div class="project-meta">
+        <div>
+          <div class="project-name">Fast Pace Reel</div>
+          <a class="open-link" href="https://drive.google.com/file/d/11SutvvncxzSqgOo4kPw16GYAGVaQZe-T/view" target="_blank" rel="noopener">Open in Drive ↗</a>
+        </div>
+        <span class="project-number">01 / 06</span>
+      </div>
+    </article>
+
+    <article class="project">
+      <div class="video">
+        <iframe src="https://drive.google.com/file/d/1bzDV55tCempeEsjEDiXwYiWPkXC1GquL/preview"
+        title="Ganpati Aagman 2026" allow="autoplay; fullscreen; picture-in-picture"
+        allowfullscreen loading="lazy"></iframe>
+      </div>
+      <div class="project-meta">
+        <div>
+          <div class="project-name">Ganpati Aagman 2026</div>
+          <a class="open-link" href="https://drive.google.com/file/d/1bzDV55tCempeEsjEDiXwYiWPkXC1GquL/view" target="_blank" rel="noopener">Open in Drive ↗</a>
+        </div>
+        <span class="project-number">02 / 06</span>
+      </div>
+    </article>
+
+    <article class="project">
+      <div class="video">
+        <iframe src="https://drive.google.com/file/d/1hnLrmEheXC536amKdETztKJvXHppIu5b/preview"
+        title="Travel Cinematic" allow="autoplay; fullscreen; picture-in-picture"
+        allowfullscreen loading="lazy"></iframe>
+      </div>
+      <div class="project-meta">
+        <div>
+          <div class="project-name">Travel Cinematic</div>
+          <a class="open-link" href="https://drive.google.com/file/d/1hnLrmEheXC536amKdETztKJvXHppIu5b/view" target="_blank" rel="noopener">Open in Drive ↗</a>
+        </div>
+        <span class="project-number">03 / 06</span>
+      </div>
+    </article>
+
+    <article class="project">
+      <div class="video">
+        <iframe src="https://drive.google.com/file/d/1MinnuCZiUv9b0Ox_B2X_D9UWNFhJpyoa/preview"
+        title="Salon Reel" allow="autoplay; fullscreen; picture-in-picture"
+        allowfullscreen loading="lazy"></iframe>
+      </div>
+      <div class="project-meta">
+        <div>
+          <div class="project-name">Salon Reel</div>
+          <a class="open-link" href="https://drive.google.com/file/d/1MinnuCZiUv9b0Ox_B2X_D9UWNFhJpyoa/view" target="_blank" rel="noopener">Open in Drive ↗</a>
+        </div>
+        <span class="project-number">04 / 06</span>
+      </div>
+    </article>
+
+    <article class="project">
+      <div class="video">
+        <iframe src="https://drive.google.com/file/d/1KW8CgMStQSwbCx5lJ8tWCQ0Uu7bLV2v8/preview"
+        title="Travel Edit" allow="autoplay; fullscreen; picture-in-picture"
+        allowfullscreen loading="lazy"></iframe>
+      </div>
+      <div class="project-meta">
+        <div>
+          <div class="project-name">Travel Edit</div>
+          <a class="open-link" href="https://drive.google.com/file/d/1KW8CgMStQSwbCx5lJ8tWCQ0Uu7bLV2v8/view" target="_blank" rel="noopener">Open in Drive ↗</a>
+        </div>
+        <span class="project-number">05 / 06</span>
+      </div>
+    </article>
+
+    <article class="project">
+      <div class="video">
+        <iframe src="https://drive.google.com/file/d/1zGPNjgos31VF5egnbsM89WgK2vzL9B18/preview"
+        title="Diwali Pahat 2026" allow="autoplay; fullscreen; picture-in-picture"
+        allowfullscreen loading="lazy"></iframe>
+      </div>
+      <div class="project-meta">
+        <div>
+          <div class="project-name">Diwali Pahat 2026</div>
+          <a class="open-link" href="https://drive.google.com/file/d/1zGPNjgos31VF5egnbsM89WgK2vzL9B18/view" target="_blank" rel="noopener">Open in Drive ↗</a>
+        </div>
+        <span class="project-number">06 / 06</span>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="footer-name">APOORV TALEKAR</div>
+  <div class="footer-note">Editing · Videography · iPhone Shooting</div>
+</footer>
+
+</div>
+</body>
+</html>
